@@ -1,0 +1,30 @@
+.Modal{
+    position: absolute;
+    width: 40%;
+    left: 30%;
+    top: 100px;
+    background-color: white;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    transition: all 0.5s ease-out;
+    z-index: 200;;
+}
+
+.Close{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: black;
+    cursor: pointer;
+}
+ .Close:hover{
+    color: rgb(32, 32, 32);   
+ }
+ @media(max-width: 1000px){
+     .Modal{
+         width: 80%;
+         left: 10%;
+         top: 70px;
+     }
+ }

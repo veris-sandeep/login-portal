@@ -1,0 +1,16 @@
+.WelcomeScreen{
+   text-align: center;
+   transition: all 1s ease-in;
+   opacity: 0;
+}
+
+.WelcomeScreen img{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.Check{
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+}
