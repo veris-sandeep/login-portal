@@ -4,6 +4,8 @@ import classes from './Login.module.css'
 import Input from '../UI/Input/Input'
 import Link from '../UI/Link/Link'
 import Aux from '../../hoc/Wrap'
+import Spinner from '../UI/Spinner/Spinner'
+import Error from '../UI/Error/Error'
 
 class Login extends Component{
 
@@ -18,13 +20,21 @@ class Login extends Component{
     }
 
     render(){
+        let error='';
+        if(this.props.error!==''){
+            error=<Error error={this.props.error} style="alert alert-danger"/>
+        }
+        else{
+            error=null;
+        }
         return (
             <Modal show={this.props.show} close={this.props.close}>
                 <div className={classes.Login}> 
                     <h1>Login</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <Aux>
-                        <Input type="text" validate={this.props.validate.email}>Email</Input>
+                         {error}
+                        <Input type="email" validate={this.props.validate.email}>Email</Input>
                         <Input type="password" validate={this.props.validate.password}>Password</Input>
                         <button 
                             disabled={this.props.disabled} 
@@ -34,6 +44,7 @@ class Login extends Component{
                         <p>Not a member? <Link switch={this.props.switch}>Sign Up</Link></p>
                     </Aux>
                 </div>
+                {this.props.spinner?<Spinner/>:null}
             </Modal>
             
         ) 

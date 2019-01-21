@@ -3,6 +3,7 @@ import classes from './Modal.module.css'
 import Backdrop from '../Backdrop/Backdrop'
 import Aux from '../../../hoc/Wrap'
 
+
 const modal=(props)=>{
     return(
         <Aux>
