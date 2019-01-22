@@ -25,10 +25,10 @@ class Signup extends Component{
             error=null;
         }
         else if(this.props.error!==true){
-            error=<Error error={this.props.error} style="alert alert-danger"/>
+            error=<Error error={this.props.error} styleClass="alert alert-danger"/>
         }
         else{
-            error=<Error error="Signup Successful! Please login to continue" style="alert alert-success"/>
+            error=<Error error="Signup Successful! Please login to continue"styleClass="alert alert-success"/>
         }
         return (
             <Modal show={this.props.show} close={this.props.close}>

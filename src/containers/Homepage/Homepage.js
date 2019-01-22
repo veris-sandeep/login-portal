@@ -1,11 +1,12 @@
 import React,{Component} from 'react';
 import classes from './Homepage.module.css';
-import Button from '../UI/Button/Button'
+import Button from '../../components/UI/Button/Button'
 import Aux from '../../hoc/Wrap'
-import Login from '../Login/Login'
-import Signup from '../Signup/Signup'
-import WelcomeScreen from '../WelcomeScreen/WelcomeScreen'
+import Login from '../../components/Login/Login'
+import Signup from '../../components/Signup/Signup'
+import WelcomeScreen from '../../components/WelcomeScreen/WelcomeScreen'
 import axios from '../../axios'
+import {withRouter,Route,Redirect} from 'react-router-dom' 
 
 class Homepage extends Component{
     signupEmailValidationHandler = (event) =>{
@@ -257,6 +258,7 @@ class Homepage extends Component{
                 homepage: false,
                 spinner: false,
             })
+            this.props.history.replace('/welcome')
         })
         .catch(err=>{
             this.setState({
@@ -326,10 +328,11 @@ class Homepage extends Component{
                     signup={this.signupHandler}
                     spinner={this.state.spinner}
                 />
-                <WelcomeScreen show={this.state.login} />
+                {this.state.login?<Route path="/welcome" component={WelcomeScreen}/>:<Redirect to='/'/>}
+
             </Aux>
         ) 
     }
 }
 
-export default Homepage;
+export default withRouter(Homepage);

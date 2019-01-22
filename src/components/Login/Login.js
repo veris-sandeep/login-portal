@@ -22,7 +22,7 @@ class Login extends Component{
     render(){
         let error='';
         if(this.props.error!==''){
-            error=<Error error={this.props.error} style="alert alert-danger"/>
+            error=<Error error={this.props.error} styleClass="alert alert-danger"/>
         }
         else{
             error=null;
